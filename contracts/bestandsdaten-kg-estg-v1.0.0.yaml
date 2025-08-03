@@ -1,0 +1,81 @@
+apiVersion: v3.0.2
+kind: DataContract
+id: bestandsdaten-kg-estg-v1.0.0
+name: bestandsdaten_kg_estg_faktentabelle
+version: 1.0.0
+status: active
+domain: sozialleistungen
+dataProduct: kindergeld-bestandsdaten
+
+description:
+  purpose: >-
+    Bereitstellung aggregierter Kindergeld-Bestandsdaten nach EStG für 
+    Controllingauswertungen.
+  limitations: >-
+    Daten sind anonymisiert und aggregiert. Keine personenbezogenen Daten.
+
+schema:
+  - name: bestandsdaten_kg_estg_faktentabelle
+    logicalType: object
+    physicalType: table
+    description: Faktentabelle mit Kindergeld-Bestandsdaten
+    
+    properties:
+      # Primärschlüssel
+      - name: berichtsmonat
+        primaryKey: true
+        primaryKeyPosition: 1
+        logicalType: date
+        physicalType: date
+        required: true
+        description: Berichtsmonat (Monatsende)
+        
+      - name: gemeindeschluessel
+        primaryKey: true
+        primaryKeyPosition: 2
+        logicalType: string
+        physicalType: varchar(8)
+        required: true
+        description: Amtlicher Gemeindeschlüssel (AGS)
+        
+      - name: familienkasse
+        primaryKey: true
+        primaryKeyPosition: 3
+        logicalType: string
+        physicalType: varchar(50)
+        required: true
+        description: Zuständige Familienkasse
+        
+      # Wichtigste Metriken
+      - name: anzahl_berechtigte
+        logicalType: integer
+        physicalType: bigint
+        required: false
+        description: Anzahl der Kindergeld-Berechtigten
+        
+      - name: anzahl_kinder
+        logicalType: integer
+        physicalType: bigint
+        required: false
+        description: Gesamtanzahl der Kinder
+        
+      - name: summe_zahlungen
+        logicalType: number
+        physicalType: decimal(15,2)
+        required: false
+        description: Gesamtsumme der Kindergeld-Zahlungen in Euro
+
+quality:
+  - name: eindeutige_primaerschluessel
+    description: Primärschlüssel-Kombination muss eindeutig sein
+    type: sql
+    query: |
+      SELECT COUNT(*) - COUNT(DISTINCT berichtsmonat, gemeindeschluessel, familienkasse) 
+      FROM ${object}
+    mustBe: 0
+    dimension: uniqueness
+
+team:
+  - username: data.owner@arbeitsagentur.de
+    role: Data Product Owner
+    dateIn: 2024-01-01
