@@ -4,18 +4,18 @@ product:
   details: 
     de:
       name: Kindergeld
-      productID: 123456are
+      productID: famka-kindergeld
       productVersion: '0.1.0'      
       visibility: invitation
       status: draft
       type: dataset
       valueProposition: Beschreibung des Mehrwerts die dieses Datenprodukt bringen soll. 
-      description: Fachliche Beschreibung des Inhalts des Datenprodukts
+      description: Dieses Datenprodukt stellt aggregierte Kindergeld-Bestandsdaten bereit, die für Controllingauswertungen verwendet werden können.
   contract:
     # Optionally se URI of external file, contains all contract details
     $ref: 'https://example.org/contracts/default.yaml'
     # Or then define with attributes
-    id: 02323M123  
+    id: bestandsdaten-kg-estg-v1.0.0  
     type:  ODCS 
     contractVersion:  0.1.0
     contractURL: ./contracts/bestandsdaten-kg-estg-v1.0.0.yaml
