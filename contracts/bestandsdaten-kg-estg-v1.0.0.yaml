@@ -65,17 +65,17 @@ schema:
         required: false
         description: Gesamtsumme der Kindergeld-Zahlungen in Euro
 
-quality:
-  - name: eindeutige_primaerschluessel
-    description: Primärschlüssel-Kombination muss eindeutig sein
-    type: sql
-    query: |
-      SELECT COUNT(*) - COUNT(DISTINCT berichtsmonat, gemeindeschluessel, familienkasse) 
-      FROM ${object}
-    mustBe: 0
-    dimension: uniqueness
+    quality:
+    - name: eindeutige_primaerschluessel
+      description: Primärschlüssel-Kombination muss eindeutig sein
+      type: sql
+      query: |
+        SELECT COUNT(*) - COUNT(DISTINCT berichtsmonat, gemeindeschluessel, familienkasse) 
+        FROM ${object}
+      mustBe: 0
+      dimension: uniqueness
 
 team:
   - username: data.owner@arbeitsagentur.de
     role: Data Product Owner
-    dateIn: 2024-01-01
+    dateIn: "2024-01-01"
