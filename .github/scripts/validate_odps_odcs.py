@@ -46,9 +46,10 @@ def load_local_odcs_schema():
     """Load local ODCS schema from .github/scripts/."""
     # Try bitol-io ODCS first (more comprehensive)
     bitol_schema_path = Path(__file__).parent / "odcs-bitol-schema-v3.0.json"
-    datacontract_schema_path = Path(__file__).parent / "odcs-datacontract-schema.json"
+    #datacontract_schema_path = Path(__file__).parent / "odcs-datacontract-schema.json"
     
-    for schema_path in [bitol_schema_path, datacontract_schema_path]:
+    #for schema_path in [bitol_schema_path, datacontract_schema_path]:
+    for schema_path in [bitol_schema_path]:        
         try:
             with open(schema_path, 'r', encoding='utf-8') as file:
                 schema = json.load(file)
