@@ -1,0 +1,45 @@
+apiVersion: v3.0.2
+kind: DataContract
+id: berichtsmonat
+name: Berichtsmonat
+version: 0.1.0
+status: test
+description:
+  purpose: Zeitdimension mit Hierarchie Jahr → Halbjahr → Quartal
+tags:
+- ssas
+- dimension
+
+schema:
+  - name: "Berichtsmonat"
+    description: ""
+    properties:
+      - name: "jhr_id"
+        logicalType: string
+        businessName: "Jahr"
+      - name: "hbj_id"
+        logicalType: string
+        businessName: "Halbjahr"
+      - name: "qrt_id"
+        logicalType: string
+        businessName: "Quartal"
+customProperties:
+  - sourceTable: "vd_as_Berichtsmonat"
+  - hierarchies:
+    - name: "Jahr-Halbjahr-Quartal"
+      allMemberName: "Alle"
+      visible: true
+      enabled: true
+      levels:
+        - name: "Jahr"
+          sourceProperty: "jhr_id"
+        - name: "Halbjahr"
+          sourceProperty: "hbj_id"
+        - name: "Quartal"
+          sourceProperty: "qrt_id"
+  - vendorExtensions:
+    - ssas:
+        calculatedSets:
+        - name: "Letzten13Monate"
+          description: "Letzten 13 Monate"
+          expression: "CREATE SET CURRENTCUBE.[Letzten13Monate] AS Tail([Berichtsmonat].[Jahr-Quartal-Monat].[Monat].members, 13)"

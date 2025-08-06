@@ -1,0 +1,290 @@
+apiVersion: v3.0.2
+kind: DataContract
+id: ssas-cube-q1-kindergeld-kiz-er
+name: Q1 Kindergeld KIZ ER_semantic_layer
+version: 1.0.0
+status: active
+domain: business-intelligence
+dataProduct: Q1 Kindergeld KIZ ER
+description:
+  purpose: Semantic layer definition for SSAS cube 'Q1 Kindergeld KIZ ER' to support
+    analytical queries and reporting
+  limitations: Cube structure extracted from XMLA - may not reflect runtime optimizations
+    or security configurations
+  usage: Use for understanding cube structure, planning data migrations, or creating
+    compatible semantic models
+tags:
+- ssas
+- cube
+- olap
+- semantic-layer
+- business-intelligence
+schema:
+- name: Q1 Kindergeld KIZ ER
+  logicalType: object
+  physicalType: cube
+  physicalName: Q1 Kindergeld KIZ ER
+  description: 'SSAS Cube: Q1 Kindergeld KIZ ER'
+  tags:
+  - cube
+  - ssas-cube
+  - olap
+  dataGranularityDescription: SSAS cube with 9 dimensions and 3 measures
+  properties:
+  - name: DA UE Merkmal
+    businessName: DA UE Merkmal
+    logicalType: string
+    physicalType: dimension
+    description: 'Dimension: DA UE Merkmal'
+    tags:
+    - dimension
+    - ssas-dimension
+    customProperties:
+    - property: ssasDimensionType
+      value: Regular
+    - property: ssasAttributeCount
+      value: 8
+    - property: ssasHierarchyCount
+      value: 1
+    - property: ssasVisibleAttributes
+      value: []
+    - property: ssasAllAttributes
+      value:
+      - dam_ba_schl
+      - dam_hide
+      - dam_id
+      - dam_sort
+      - dam_zf1_ba_schl
+      - dam_zf1_hide
+      - dam_zf1_id
+      - dam_zf1_sort
+  - name: Erledigungsart FamKa
+    businessName: Erledigungsart FamKa
+    logicalType: string
+    physicalType: dimension
+    description: 'Dimension: Erledigungsart FamKa'
+    tags:
+    - dimension
+    - ssas-dimension
+    customProperties:
+    - property: ssasDimensionType
+      value: Regular
+    - property: ssasAttributeCount
+      value: 4
+    - property: ssasHierarchyCount
+      value: 1
+    - property: ssasVisibleAttributes
+      value: []
+    - property: ssasAllAttributes
+      value:
+      - ker_ba_schl
+      - ker_hide
+      - ker_id
+      - ker_sort
+  - name: Laufzeit FamKa
+    businessName: Laufzeit FamKa
+    logicalType: string
+    physicalType: dimension
+    description: 'Dimension: Laufzeit FamKa'
+    tags:
+    - dimension
+    - ssas-dimension
+    customProperties:
+    - property: ssasDimensionType
+      value: Regular
+    - property: ssasAttributeCount
+      value: 4
+    - property: ssasHierarchyCount
+      value: 1
+    - property: ssasVisibleAttributes
+      value: []
+    - property: ssasAllAttributes
+      value:
+      - int_q1_ba_schl
+      - int_q1_hide
+      - int_q1_id
+      - int_q1_sort
+  - name: Rechtsgrundlage
+    businessName: Rechtsgrundlage
+    logicalType: string
+    physicalType: dimension
+    description: 'Dimension: Rechtsgrundlage'
+    tags:
+    - dimension
+    - ssas-dimension
+    customProperties:
+    - property: ssasDimensionType
+      value: Regular
+    - property: ssasAttributeCount
+      value: 4
+    - property: ssasHierarchyCount
+      value: 1
+    - property: ssasVisibleAttributes
+      value: []
+    - property: ssasAllAttributes
+      value:
+      - kla_ba_schl
+      - kla_hide
+      - kla_id
+      - kla_sort
+  - name: Vorgangsart FamKa
+    businessName: Vorgangsart FamKa
+    logicalType: string
+    physicalType: dimension
+    description: 'Dimension: Vorgangsart FamKa'
+    tags:
+    - dimension
+    - ssas-dimension
+    customProperties:
+    - property: ssasDimensionType
+      value: Regular
+    - property: ssasAttributeCount
+      value: 12
+    - property: ssasHierarchyCount
+      value: 1
+    - property: ssasVisibleAttributes
+      value: []
+    - property: ssasAllAttributes
+      value:
+      - kan_ba_schl
+      - kan_hide
+      - kan_id
+      - kan_sort
+      - kan1_ba_schl
+      - kan1_hide
+      - kan1_id
+      - kan1_sort
+      - kan2_ba_schl
+      - kan2_hide
+      - kan2_id
+      - kan2_sort
+  - name: Zeitgruppierung FamKa
+    businessName: Zeitgruppierung FamKa
+    logicalType: string
+    physicalType: dimension
+    description: 'Dimension: Zeitgruppierung FamKa'
+    tags:
+    - dimension
+    - ssas-dimension
+    customProperties:
+    - property: ssasDimensionType
+      value: Regular
+    - property: ssasAttributeCount
+      value: 6
+    - property: ssasHierarchyCount
+      value: 1
+    - property: ssasVisibleAttributes
+      value: []
+    - property: ssasAllAttributes
+      value:
+      - gro_ba_schl
+      - gro_hide
+      - gro_id
+      - gro_sort
+      - gro_min
+      - gro_max
+  - name: Berichtsstruktur Team
+    businessName: Berichtsstruktur Team
+    logicalType: string
+    physicalType: dimension
+    description: 'Dimension: Berichtsstruktur Team'
+    tags:
+    - dimension
+    - ssas-dimension
+    customProperties:
+    - property: ssasDimensionType
+      value: Regular
+    - property: ssasAttributeCount
+      value: 6
+    - property: ssasHierarchyCount
+      value: 1
+    - property: ssasVisibleAttributes
+      value: []
+    - property: ssasAllAttributes
+      value:
+      - Ftt Id
+      - Ftt Sort
+      - Fmk Id
+      - Fmk z Id
+      - Fmk Sort
+      - Fmk z Sort
+  - name: Berichtsmonat
+    businessName: Berichtsmonat
+    logicalType: string
+    physicalType: dimension
+    description: 'Dimension: Berichtsmonat'
+    tags:
+    - dimension
+    - ssas-dimension
+    customProperties:
+    - property: ssasDimensionType
+      value: Regular
+    - property: ssasAttributeCount
+      value: 22
+    - property: ssasHierarchyCount
+      value: 5
+    - property: ssasVisibleAttributes
+      value: []
+    - property: ssasAllAttributes
+      value:
+      - jhr_ba_schl
+      - jhr_hide
+      - jhr_id
+      - jhr_sort
+      - jhr_index
+      - mon_ba_schl
+      - mon_hide
+      - mon_id
+      - mon_sort
+      - stichtag
+      - berichtstage
+      - mon_index
+      - qrt_ba_schl
+      - qrt_hide
+      - qrt_id
+      - qrt_sort
+      - qrt_index
+      - hbj_id
+      - hbj_sort
+      - hbj_ba_schl
+      - hbj_hide
+      - hbj_index
+  - name: Bundesland
+    businessName: Bundesland
+    logicalType: string
+    physicalType: dimension
+    description: 'Dimension: Bundesland'
+    tags:
+    - dimension
+    - ssas-dimension
+    customProperties:
+    - property: ssasDimensionType
+      value: Regular
+    - property: ssasAttributeCount
+      value: 4
+    - property: ssasHierarchyCount
+      value: 1
+    - property: ssasVisibleAttributes
+      value: []
+    - property: ssasAllAttributes
+      value:
+      - Bld Id
+      - Bld Ba Schl
+      - Bld Hide
+      - Bld Sort
+  customProperties:
+  - property: ssasCubeType
+    value: SSAS
+  - property: ssasDimensionCount
+    value: 9
+  - property: ssasMeasureCount
+    value: 3
+  - property: ssasCalculatedMemberCount
+    value: 0
+  - property: ssasKpiCount
+    value: 0
+  - property: ssasHierarchyCount
+    value: 0
+  - property: ssasMeasureGroups
+    value:
+    - Q1 Kindergeld KIZ ER
