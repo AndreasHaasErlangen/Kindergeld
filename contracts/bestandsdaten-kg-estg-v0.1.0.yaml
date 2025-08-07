@@ -23,7 +23,7 @@ schema:
     logicalType: date
     physicalType: date
     required: true
-    description: Berichtsmonat (Monatsende)
+    description: dimension Berichtsmonat (Monatsende)
   - name: gemeindeschluessel
     primaryKey: true
     primaryKeyPosition: 2
@@ -42,12 +42,12 @@ schema:
     logicalType: integer
     physicalType: bigint
     required: false
-    description: Anzahl der Kindergeld-Berechtigten
+    description: Anzahl der Kunden mit Regelzahlung für den Berichtsmonat als Anspruchsmonat
   - name: anzahl_kinder
     logicalType: integer
     physicalType: bigint
     required: false
-    description: Gesamtanzahl der Kinder
+    description: Anzahl der Kinder mit Regelzahlung für den Berichtsmonat als Anspruchsmonat
   - name: summe_zahlungen
     logicalType: number
     physicalType: decimal(15,2)

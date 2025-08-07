@@ -11,18 +11,21 @@ tags:
 - dimension
 
 schema:
-  - name: "Berichtsmonat"
-    description: ""
+  - name: vd_as_berichtsmonat
+    description: "Dimension Berichtsmonat"
     properties:
-      - name: "jhr_id"
+      - name: "mon_id"
         logicalType: string
-        businessName: "Jahr"
-      - name: "hbj_id"
-        logicalType: string
-        businessName: "Halbjahr"
+        businessName: "Monat"
       - name: "qrt_id"
         logicalType: string
         businessName: "Quartal"
+      - name: "hbj_id"
+        logicalType: string
+        businessName: "Halbjahr"
+      - name: "jhr_id"
+        logicalType: string
+        businessName: "Jahr"
 customProperties:
   - sourceTable: "vd_as_Berichtsmonat"
   - hierarchies:
